@@ -1,0 +1,59 @@
+stock-market-service:
+  connection:
+    connect-timeout: 30000
+    read-timeout: 30000
+  services:
+    stock-values-service:
+      url: 'https://www.alphavantage.co/query'
+      apikey: 'X86NOH6II01P7R24'
+  security:
+    jwtTokenExpirationInMillis: '86400000'
+    jwtSecret: 4t7w!z%C*F-J@NcRfUjXn2r5u8x/A?D(G+KbPdSgVkYp3s6v9y$B&E)H@McQfThW
+
+spring:
+  h2:
+    console:
+      enabled: 'false'
+  datasource:
+    username: sa
+    url: jdbc:h2:~/stock-market-api-2
+    driverClassName: org.h2.Driver
+    password: ''
+  jpa:
+    show-sql: 'false'
+    generate-ddl: 'true'
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+      defer-datasource-initialization: 'true'
+  cache:
+    cache-names:
+      - rate-limit-buckets
+    caffeine:
+      spec: maximumSize=100000,expireAfterAccess=3600s
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+
+bucket4j:
+  enabled: true
+  filters:
+    - cache-name: rate-limit-buckets
+      url: .*
+      strategy: first
+      http-response-body: "{ \"status\": 429, \"error\": \"Too Many Requests\" }"
+      rate-limits:
+        - expression: "getHeader('X-api-key')"
+          bandwidths:
+            - capacity: 5
+              time: 1
+              unit: minutes
+
+server:
+  servlet:
+    context-path: /api

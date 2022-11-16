@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "c438da13-dfc8-4a8e-becb-2cc70c77ef25",
+		"name": "reto-eurekalabs-local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9265523"
+	},
+	"item": [
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"your.email@email.com\",\r\n    \"password\":\"admin123456\",\r\n    \"name\":\"name\",\r\n    \"lastName\":\"lastName\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsvc29yaW8uanVhbkBvdXRsb29rLmNsIiwiaXNzIjoiU3Rvcm1wYXRoIiwiZXhwIjoxNjY3MjQ2MDk0LCJpYXQiOjE2NjcxNTk2OTR9.y7ASTMDQkxbB7KJ9W-UEHkJ9I0tYQUtTO2nXjw0YTkMzHipDHK98pfeTuTxRQRUpC_eahsB_wOnHT--G8Ic-0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"your.email@email.com\",\r\n    \"password\": \"admin123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStockMarketInfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ5b3VyLmVtYWlsQGVtYWlsLmNvbSIsImlzcyI6IlN0b3JtcGF0aCIsImV4cCI6MTY2NzMzNTIxMywiaWF0IjoxNjY3MjQ4ODEzfQ.SgIes24Z2_pwaPsB_mhkkgT38BbPFJJmt6NhvUDc0oll6zBxRyl4wtp7WRUB5ccvdDXFuoh0vJdlPb9c3wv9uw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/stock-market/stock-info?stock-symbol=IBM&time-series=TIME_SERIES_DAILY",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stock-market",
+						"stock-info"
+					],
+					"query": [
+						{
+							"key": "stock-symbol",
+							"value": "IBM"
+						},
+						{
+							"key": "time-series",
+							"value": "TIME_SERIES_DAILY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alphavantage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=FB&outputsize=compact&apikey=X86NOH6II01P7R24",
+					"protocol": "https",
+					"host": [
+						"www",
+						"alphavantage",
+						"co"
+					],
+					"path": [
+						"query"
+					],
+					"query": [
+						{
+							"key": "function",
+							"value": "TIME_SERIES_DAILY"
+						},
+						{
+							"key": "symbol",
+							"value": "FB"
+						},
+						{
+							"key": "outputsize",
+							"value": "compact"
+						},
+						{
+							"key": "apikey",
+							"value": "X86NOH6II01P7R24"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

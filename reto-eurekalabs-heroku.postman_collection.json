@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "d8f25b5c-b315-4893-ae52-fa31f9691b6c",
+		"name": "reto-eurekalabs-heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9265523"
+	},
+	"item": [
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"isaacjm1@email.com\",\r\n    \"password\":\"12345678\",\r\n    \"name\":\"name\",\r\n    \"lastName\":\"lastName\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reto-eurekalabs.herokuapp.com/api/auth/signup",
+					"protocol": "https",
+					"host": [
+						"reto-eurekalabs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsvc29yaW8uanVhbkBvdXRsb29rLmNsIiwiaXNzIjoiU3Rvcm1wYXRoIiwiZXhwIjoxNjY3MjQ2MDk0LCJpYXQiOjE2NjcxNTk2OTR9.y7ASTMDQkxbB7KJ9W-UEHkJ9I0tYQUtTO2nXjw0YTkMzHipDHK98pfeTuTxRQRUpC_eahsB_wOnHT--G8Ic-0w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"isaacjm1@email.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reto-eurekalabs.herokuapp.com/api/auth/signin",
+					"protocol": "https",
+					"host": [
+						"reto-eurekalabs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStockMarketInfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpc2FhY2ptMUBlbWFpbC5jb20iLCJpc3MiOiJTdG9ybXBhdGgiLCJleHAiOjE2Njg2ODY3MTksImlhdCI6MTY2ODYwMDMxOX0.E5o5unUpFEZQ7RVx8GqDu3ZxQsucYtpEMbxo1NvA_QooszOS9I4ZIuMl1dxMBbVnDTAhmE2ULWjBfAbw0LMXnw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reto-eurekalabs.herokuapp.com/api/stock-market/stock-info?stock-symbol=IBM&time-series=TIME_SERIES_DAILY",
+					"protocol": "https",
+					"host": [
+						"reto-eurekalabs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"stock-market",
+						"stock-info"
+					],
+					"query": [
+						{
+							"key": "stock-symbol",
+							"value": "IBM"
+						},
+						{
+							"key": "time-series",
+							"value": "TIME_SERIES_DAILY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alphavantage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=FB&outputsize=compact&apikey=X86NOH6II01P7R24",
+					"protocol": "https",
+					"host": [
+						"www",
+						"alphavantage",
+						"co"
+					],
+					"path": [
+						"query"
+					],
+					"query": [
+						{
+							"key": "function",
+							"value": "TIME_SERIES_DAILY"
+						},
+						{
+							"key": "symbol",
+							"value": "FB"
+						},
+						{
+							"key": "outputsize",
+							"value": "compact"
+						},
+						{
+							"key": "apikey",
+							"value": "X86NOH6II01P7R24"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
