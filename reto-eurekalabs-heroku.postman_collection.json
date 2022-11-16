@@ -21,10 +21,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://reto-eurekalabs.herokuapp.com/api/auth/signup",
+					"raw": "https://stock-market-api-service.herokuapp.com/api/auth/signup",
 					"protocol": "https",
 					"host": [
-						"reto-eurekalabs",
+						"stock-market-api-service",
 						"herokuapp",
 						"com"
 					],
@@ -39,6 +39,17 @@
 		},
 		{
 			"name": "SignIn",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -62,10 +73,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://reto-eurekalabs.herokuapp.com/api/auth/signin",
+					"raw": "https://stock-market-api-service.herokuapp.com/api/auth/signin",
 					"protocol": "https",
 					"host": [
-						"reto-eurekalabs",
+						"stock-market-api-service",
 						"herokuapp",
 						"com"
 					],
@@ -86,7 +97,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpc2FhY2ptMUBlbWFpbC5jb20iLCJpc3MiOiJTdG9ybXBhdGgiLCJleHAiOjE2Njg2ODY3MTksImlhdCI6MTY2ODYwMDMxOX0.E5o5unUpFEZQ7RVx8GqDu3ZxQsucYtpEMbxo1NvA_QooszOS9I4ZIuMl1dxMBbVnDTAhmE2ULWjBfAbw0LMXnw",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpc2FhY2ptMUBlbWFpbC5jb20iLCJpc3MiOiJTdG9ybXBhdGgiLCJleHAiOjE2Njg2OTI2NTksImlhdCI6MTY2ODYwNjI1OX0.NtyTm2HNlSuiFtyAXmj2wAZbILIF1Fe3o2-HCx_tYNAuTyieKY9fGa2rQbEPRre5YSqff9GNRumgFOgFvRnqdw",
 							"type": "string"
 						}
 					]
@@ -94,10 +105,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reto-eurekalabs.herokuapp.com/api/stock-market/stock-info?stock-symbol=IBM&time-series=TIME_SERIES_DAILY",
+					"raw": "https://stock-market-api-service.herokuapp.com/api/stock-market/stock-info?stock-symbol=IBM&time-series=TIME_SERIES_DAILY",
 					"protocol": "https",
 					"host": [
-						"reto-eurekalabs",
+						"stock-market-api-service",
 						"herokuapp",
 						"com"
 					],
@@ -157,6 +168,33 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
 		}
 	]
 }

@@ -2,7 +2,7 @@
 * Aplicación para obtener información sobre el mercado de valores.
 * La aplicación está compilada con Java 17 y el administrador de dependencias es gradle.
 * La aplicación está diseñada con arquitectura hexagonal para favorecer el diseño basado en dominios.
-* La aplicación se implementa en Heroku: https://reto-eurekalabs.herokuapp.com
+* La aplicación se implementa en Heroku: https://stock-market-api-service.herokuapp.com
 
 ### Inscribirse ###
 El endpoint `POST` `/api/auth/signup` se usa para crear el registro de usuario y poder invocar el endpoint para obtener el token de autorización
